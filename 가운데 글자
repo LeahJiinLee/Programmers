@@ -1,0 +1,17 @@
+class Solution {
+  public String solution(String s) {
+       String answer=s;
+      int i=0; 
+      if (s.length()%2!=0) //홀수
+      {   
+          i=s.length()/2;
+          answer =s.substring(i,i); }
+      
+      else
+      {
+          i=s.length()/2;
+          answer= s.substring(i-1,i);
+      }
+      return answer;
+  }
+}
