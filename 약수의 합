@@ -1,0 +1,20 @@
+class Solution {
+  public String solution(int n) {
+      //String answer = "";
+      String [] str = {"수", "박"};
+      
+      StringBuilder sb = new StringBuilder();
+      for (int i=1; i<=n ; i++) {
+          if (i%2==1) {
+              sb.append(str[0]);
+          }
+          else 
+          {
+              sb.append(str[1]);
+          }
+      }
+      String answer= sb.toString();
+      
+      return answer;
+  }
+}
