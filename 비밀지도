@@ -1,0 +1,48 @@
+import java.util.*;
+class Solution {
+  public String[] solution(int n, int[] arr1, int[] arr2) {
+      String[] answer = new String [n];
+      int [][] arr1_map = new int [n][n];
+      int [][] arr2_map = new int [n][n];
+      for (int i=0; i<n ; i++) {
+         String temp= Integer.toBinaryString(arr1[i]);
+          if (temp.length()- n!=0) {
+              StringBuilder sbr = new StringBuilder();
+              for (int p=0; p<n-temp.length() ; p++) {
+                  sbr.append("0");
+              }
+              temp = sbr.toString()+temp;
+          }
+              for (int j=0; j<n; j++) {
+            arr1_map[i][j] = temp.charAt(j)-'0';
+        }
+      }
+      for (int i=0; i<n ; i++) {
+         String temp= Integer.toBinaryString(arr2[i]) ;//입력값 10진수-> 2진수 String으로
+          if (temp.length()- n!=0) {
+              StringBuilder sbr = new StringBuilder();
+              for (int p=0; p<n-temp.length() ; p++) {
+                  sbr.append("0");
+              }
+              temp = sbr.toString()+temp;
+          }
+        for (int j=0; j<n; j++) {
+            arr2_map[i][j] = temp.charAt(j)-'0';
+        }
+      }
+      
+       for (int i=0; i<n; i++) {
+           StringBuilder sb = new StringBuilder();
+           for (int j=0; j<n; j++) {
+              if (arr1_map[i][j] ==1 || arr2_map[i][j] ==1) {
+                  sb.append("#");
+               }
+            else {
+                 sb.append(" ");
+              }
+          }
+         answer[i]= sb.toString();
+      }
+      return answer;
+  }
+}
