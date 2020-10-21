@@ -1,0 +1,34 @@
+class Solution {
+    public int[] solution(int[] array, int[][] commands)
+    {
+        int [] temp;
+        int box=0;
+         int[] answer = new int [commands.length];//연산요청한 수만큼
+        int size=0;
+        int range_start; 
+        for (int i=0; i<commands.length; i++ ){
+            size= commands[i][1]-commands[i][0]+1;//자른 배열의 크기
+            temp= new int [size];
+            range_start= commands[i][0]-1; //2번째부터라면 사실 배열에선 1
+            for (int k=0; k<temp.length;k++, range_start++)
+            {
+                temp[k]=array[range_start];
+                
+               
+            }
+            for (int j=0; j<temp.length-1; j++){ 
+                for (int p=0; p<temp.length-1-j; p++){//temp정렬하기
+                if (temp[p]>temp[p+1]){
+                    box= temp[p];
+                    temp[p]=temp[p+1];
+                    temp[p+1]= box;
+                }
+                }
+            }
+            answer[i]=temp[commands[i][2]-1];
+        }
+       
+        return answer;
+    }
+
+}
