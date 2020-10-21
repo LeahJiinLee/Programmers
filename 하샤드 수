@@ -1,0 +1,15 @@
+class Solution {
+  public boolean solution(int x) {
+      boolean answer = true;
+      String number= Integer.toString(x);
+      int x_num[]= new int[number.length()];
+      int sum=0;
+      for (int i=0; i<number.length(); i++) {
+          x_num[i]=number.charAt(i)-'0';
+          sum+=x_num[i];
+      } //각각 자리를 저장
+     if ((x%sum)!=0) answer=false; 
+     // else answer=true;
+      return answer;
+  }
+}
